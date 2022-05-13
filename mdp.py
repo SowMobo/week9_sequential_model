@@ -88,7 +88,11 @@ def v(s):
 # expectimax
 def q_em(mdp, s, a, h):
     # Your code here
-    pass
+    if h == 0 :
+        return 0
+    else:
+        return mdp.reward_fn(s, a) + mdp.discount_factor * \
+            sum([p*max([q_em(mdp, sp, ap, h-1) for ap in mdp.actions]) for (sp, p) in mdp.transition_model(s, a).d.items()])
 
 # Given a state, return the value of that state, with respect to the
 # current definition of the q function

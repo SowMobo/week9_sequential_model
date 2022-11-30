@@ -149,10 +149,10 @@ def epsilon_greedy(q, s, eps = 0.5):
     """
     if random.random() < eps:  # True with prob eps, random action
         # Your code here
-        return uniform_dist(q.actions).draw()
+        return uniform_dist(q.actions).draw() # we explore
     else:
         # Your code here
-        return greedy(q, s)
+        return greedy(q, s) # we choose a greedy action
 
 class TabularQ:
     def __init__(self, states, actions):
